@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: early-disease-prediction
+    env: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    branch: main
+    autoDeploy: true
