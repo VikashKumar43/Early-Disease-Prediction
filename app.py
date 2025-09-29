@@ -109,53 +109,53 @@ if selected == 'Lung Cancer Prediction':
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        gender_data=0
-        gender="Upload image for Gender Detection"
-        url = "https://age-detection-and-gender-detection-from-face-image.p.rapidapi.com/api/faces"
-        headers = {
-            "x-rapidapi-key": "bbc5145240msh0e91c37e7185464p106ea8jsn408663b4fe84",  # Replace with your actual RapidAPI key
-            "x-rapidapi-host": "age-detection-and-gender-detection-from-face-image.p.rapidapi.com",
-            "Content-Type": "application/json"
-        }
+        # gender_data=0
+        # gender="Upload image for Gender Detection"
+        # url = "https://age-detection-and-gender-detection-from-face-image.p.rapidapi.com/api/faces"
+        # headers = {
+        #     "x-rapidapi-key": "bbc5145240msh0e91c37e7185464p106ea8jsn408663b4fe84",  # Replace with your actual RapidAPI key
+        #     "x-rapidapi-host": "age-detection-and-gender-detection-from-face-image.p.rapidapi.com",
+        #     "Content-Type": "application/json"
+        # }
 
-        # Streamlit app setup
+        # # Streamlit app setup
        
 
-        # Upload an image from local storage
-        uploaded_file1 = st.file_uploader("Gender Detection", type=["jpg", "jpeg", "png"])
+        # # Upload an image from local storage
+        # uploaded_file1 = st.file_uploader("Gender Detection", type=["jpg", "jpeg", "png"])
 
-        if uploaded_file1 is not None:
-            # Display the uploaded image
+        # if uploaded_file1 is not None:
+        #     # Display the uploaded image
            
 
-            # Convert the uploaded image to base64
-            img_bytes = uploaded_file1.read()
-            img_base64 = base64.b64encode(img_bytes).decode("utf-8")
+        #     # Convert the uploaded image to base64
+        #     img_bytes = uploaded_file1.read()
+        #     img_base64 = base64.b64encode(img_bytes).decode("utf-8")
 
-            # Prepare the payload for the API request
-            payload = {
-                "base64_image": img_base64
-            }
+        #     # Prepare the payload for the API request
+        #     payload = {
+        #         "base64_image": img_base64
+        #     }
 
-            # Send the request to the API
-            response = requests.post(url, json=payload, headers=headers)
+        #     # Send the request to the API
+        #     response = requests.post(url, json=payload, headers=headers)
 
-            # Display the response
-            if response.status_code == 200:
-                result = response.json()
+        #     # Display the response
+        #     if response.status_code == 200:
+        #         result = response.json()
                 
-                gender_data = result["models"][0]["output"][0]["gender"]
-            else:
-                st.write("Error: Upload another image")
+        #         gender_data = result["models"][0]["output"][0]["gender"]
+        #     else:
+        #         st.write("Error: Upload another image")
 
-        if gender_data!=0:
-            if gender_data["Man"]>gender_data["Woman"]:
-                gender="Male"
-            else:
-                gender="Female"
+        # if gender_data!=0:
+        #     if gender_data["Man"]>gender_data["Woman"]:
+        #         gender="Male"
+        #     else:
+        #         gender="Female"
                 
-        st.write(gender)
-        #gender = st.selectbox("Gender:", lung_cancer_data['GENDER'].unique())
+        # st.write(gender)
+        gender = st.selectbox("Gender:", lung_cancer_data['GENDER'].unique())
      
 
 
