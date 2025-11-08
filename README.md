@@ -25,3 +25,4 @@ Front end: StreamLit
 
 
 
+# rebuild trigger
